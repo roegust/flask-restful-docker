@@ -10,6 +10,8 @@
 
     docker-compose up -d
 
+then you can access api in http://127.0.0.1/task
+
 ## API usage
 
 `GET /task`
