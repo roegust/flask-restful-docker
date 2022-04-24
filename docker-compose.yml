@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  flask-restful:
+    image: 'flask-restful:latest'
+    container_name: flask-restful
+    restart: always
+    ports:
+      - '5000:5000'
+    networks:
+      vnet:
+        ipv4_address: 10.3.0.2
+  nginx:
+    image: 'nginx:latest'
+    container_name: nginx
+    restart: always
+    volumes:
+      - './nginx/conf.d/proxy.conf:/etc/nginx/conf.d/proxy.conf'
+    ports:
+      - '80:8080'
+    networks:
+      - vnet
+    depends_on:
+      - flask-restful
+networks:
+  vnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.3.0.0/16
+          gateway: 10.3.0.1
