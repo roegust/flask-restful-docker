@@ -11,5 +11,4 @@ class Task:
       return { "id": self.id, "name": self.name, "status": self.status}
 
   def jsonify(self):
-      
       return jsonify(self.toJSON())
