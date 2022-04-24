@@ -6,11 +6,11 @@
 
     docker build . -t flask-restful:latest
 
-### Start container
+### Compose up
 
-    docker run -p 5000:5000 flask-restful
+    docker-compose up -d
 
-## APi usage
+## API usage
 
 `GET /task`
 
