@@ -1,1 +1,1 @@
-__all__ = ['tasks']
+__all__ = ['task']

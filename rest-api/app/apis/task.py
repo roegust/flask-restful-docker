@@ -1,10 +1,7 @@
 from flask import jsonify
 from flask_restful import reqparse, abort, Resource
 from app.models.Task import Task
-from app.data.tasks import TASKS
-
-# use simulation data
-global TASKS
+from app.data.task import TASKS
 
 ## handling if id not exist
 def abort_if_task_doesnt_exist(id):
@@ -41,6 +38,7 @@ class TaskById(Resource):
 
 class ListAllTasks(Resource):
     def get(self):
+        print(TASKS)
         return jsonify(list(map(lambda i: i.toJSON(), TASKS.values())))
 
 class AddTask(Resource):
